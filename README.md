@@ -1,3 +1,4 @@
 # Machine-Learning-for-Public-Polcy
 Assignments for Machine Learning course.
-The first assignment is named Crime Analysis and contains neighbourhood shapefile used in spatial join
+
+Assignment I: The first assignment is named Crime Analysis. The codes are in jupyter notebook: Crime_HW1. The folder also contains neighbourhood shapefile used for spatial join.
