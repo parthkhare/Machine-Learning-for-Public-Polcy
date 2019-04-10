@@ -10,3 +10,4 @@
 + Used Neighbourhoods for part 1 using from directory
 + Extracted ACS data available by Block group & tracts. Used spatial join to intregrate social statistics with crime data
 + Created 'diversity' variable : Proportion of Other Races to total population
++ Study of block statistics executed via checking relative position of high crime ranking blocks (tracts) in frequency distribution of social statistics 
