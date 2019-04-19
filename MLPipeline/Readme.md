@@ -15,4 +15,4 @@
   - open to correction/improvemnt with learning more about the working of the model
 + Comparison with linear regression would help in showing marginal difference in model performance
 + Current form of model does not include working with hyperparameters and tree pruning, CV
- - further work can be done to control for possible overfitting
+  - further work can be done to control for possible overfitting
