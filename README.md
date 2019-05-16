@@ -5,4 +5,7 @@ Assignments for Machine Learning course.
 
 + Assignment II [Jupyter Notebook II](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/MLPipeline/ML_Pipeline_HW2.ipynb): The second assignment (notebook and helper function) are in MLPipeline folder. Subfolders include data (raw data used for modeling) and charts (visualisation of a sample tree).
 
++ Assignment III [Jupyter Notebook III](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline/ML_ImprvPipe_HW3.ipynb): The third assignment (notebook and helper function) are in Improving_Pipeline folder. Subfolders include data (raw data used for modeling) and charts.
+
+
 
