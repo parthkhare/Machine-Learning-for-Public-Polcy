@@ -52,7 +52,6 @@ def temporal_train_test_split(df, train_start, train_end, test_start, test_end, 
     train_df = df[(df[time_var] >= train_start) & (df[time_var] <= train_end)]
     y_train = train_df[pred_var]
     X_train = train_df.drop([pred_var, time_var], axis = 1)
-
     test_df = df[(df[time_var] >= test_start) & (df[time_var] <= test_end)]
     y_test = test_df[pred_var]
     X_test = test_df.drop([pred_var, time_var], axis = 1)
@@ -146,6 +145,38 @@ def f1_at_k(y_true, y_scores, k):
 
     return f1
 
+def compare_metrics(model_result, pivot_by='model_type', metric='precison'):
+    '''
+    Compare metrics from multiple model across different by different pivot
+    Input: model results from the classifier loop, pivot by = time, classifier used, metric
+    Output: plot
+    ''' 
+
+    # Change name of metric identifier to identify from model result column name
+    if metric == 'precision' or metric == 'Precision':
+        metric_iden = 'p_'
+    elif metric == 'recall' or metric == 'Recall':
+        metric_iden = 'r_'
+    if metric == 'accuracy' or metric == 'Accuracy':
+        metric_iden = 'a_'
+    if metric == 'f1' or metric == 'F1' or metric == 'F-1':
+        metric_iden = 'f1_'
+        
+    # Groupby Data by desired outcome
+    met_col = [col for col in model_result if col.startswith(metric_iden)]
+    d = dict.fromkeys(met_col, ['mean'])
+    plot_df = model_result.groupby(pivot_by, as_index=False).agg(d)
+    plot_df.columns = plot_df.columns.droplevel(-1)
+    plot_df = plot_df.set_index(pivot_by)
+    
+    # Multiplots for different threholds
+    plt.figure(figsize=(8,6))
+    for i in range(len(plot_df)):
+        plt.plot([k for k in plot_df.columns],[plot_df[y].iloc[i] for y in plot_df.columns])
+    plt.legend(plot_df.index,loc='center left', bbox_to_anchor=(1, 0.5))
+    plt.show()
+
+
 def pr_curve(y_true, y_prob):
     '''
     Precision Recall Curve for individual y_test and y_prob values using precison recall curve function from sci
@@ -233,15 +264,15 @@ def define_clfs_params(grid_size):
             }
 
     small_grid = { 
-        'RF':{'n_estimators': [10,100], 'max_depth': [5,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,10], 'n_jobs': [-1]},
+        'RF':{'n_estimators': [10,100,250], 'max_depth': [5,50], 'max_features': ['sqrt'],'min_samples_split': [2,10], 'n_jobs': [-1]},
         # no bootstrap, bootstrap_features for time to train constraints
-        'BG':{'n_estimators': [1, 10], 'max_samples': [0.1, 0.5], 'max_features':[0.1, 0.5]},
-        'AB': { 'algorithm': ['SAMME', 'SAMME.R'], 'n_estimators': [1,10,100,1000,10000]},
-        'LR': { 'penalty': ['l1','l2'], 'C': [0.001,0.01, 0.1,1,10]},
+        'BG':{'n_estimators': [10,20], 'max_samples': [0.1, 0.5], 'max_features':[0.1, 0.5]},
+        'AB': { 'algorithm': ['SAMME', 'SAMME.R'], 'n_estimators': [10,50]},
+        'LR': { 'penalty': ['l1','l2'], 'C': [0.01, 0.1,1]},
         # Same as test row for run time considerations
-        'SVM' :{'C' :[0.01],'kernel':['linear']},
+        'SVM' :{'C' :[0.01,0.1],'kernel':['linear']},
         # Same as test row for time to run considerations
-        'GB': {'n_estimators': [1], 'learning_rate' : [0.1],'subsample' : [0.5], 'max_depth': [1]},
+        'GB': {'n_estimators': [50,100], 'learning_rate' : [0.01,0.1],'subsample' : [0.5], 'max_depth': [1]},
         'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20],'min_samples_split': [2,5,10]},
         'KNN' :{'n_neighbors': [5,10,25],'weights': ['uniform','distance'],'algorithm': ['auto','kd_tree']}
                }
@@ -330,27 +361,18 @@ def clf_wrapper(df, start_time_date, end_time_date, prediction_windows, time_var
         while train_end_time + relativedelta(months=+prediction_window)<=end_time_date:
             test_start_time = train_end_time + relativedelta(days=+1)
             test_end_time = test_start_time + relativedelta(months=+prediction_window) - relativedelta(days=+1)
-            
             print('training date range:', train_start_time, train_end_time) 
             print('testing date range:', test_start_time, test_end_time)
-
             # Build training and testing sets
             print()
             X_train, y_train, X_test, y_test = temporal_train_test_split(df, train_start_time, train_end_time, \
                 test_start_time, test_end_time, time_var, pred_var)
-
-            # treat NA values using
-            X_train = mh.treat_missing(X_train,'students_reached')
-            X_test = mh.treat_missing(X_test,'students_reached')
-
             # Build classifiers: refers to loop identified before for execution
             row_lst = clf_loop(models_to_run, clfs, grid, X_train, X_test, y_train, y_test, \
                 (train_start_time,train_end_time), (test_start_time,test_end_time))
-
             # Add time
             train_end_time += relativedelta(months=+prediction_window)
             test_output.extend(row_lst)
-
             # Check if Test Data is not Skewed
             print('Check for Skewed Classes')
             sns.countplot(y_test)
