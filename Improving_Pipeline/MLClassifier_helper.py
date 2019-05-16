@@ -34,8 +34,7 @@ from dateutil.relativedelta import relativedelta
 import MLPreprocess_helper as mh
 
 
-# ------ Codes on Standard Model Fitting adapted from Rayid Ghani's magicloops repository ---------------- #
-# ---------------------------- https://github.com/rayidghani/magicloops ---------------------------------- #
+# --- Codes on Standard Model Fitting adapted from Rayid Ghani's magicloops repository (https://github.com/rayidghani/magicloops) ---- #
 
 # ------------------------------------------------
 # # Section I: Restructing Data & Metrics
