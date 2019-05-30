@@ -1,7 +1,7 @@
 # Assignment V: Improving Pipeline
 [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline/ML_ImprvPipe_HW3.ipynb)
 
-### The following documents summarises subjective calls taken on features, parameters, evaluation metrics and user-defined functions. It features details not addressed in the policy writeup
+### The following documents summarises subjective calls taken on features, parameters, evaluation metrics and user-defined functions. It features details not addressed in the policy writeup.
 
 
 ## Data: First Impressions 
@@ -31,29 +31,24 @@ Following quick observation may be drawn for data on 124 thousand project propos
 - Categorical/Factor variables:
 	- Before imputing by mode category check relative frequencies of 2nd, 3rd highest categories
 	- We would not want to bias the estimates by using disproportionately high category
-
-59 missing values student_reached treated by mean replacement.  Ideally, given the right skewed distribution mean is not recommended, but the missing % is less than 0.001% of data. Rest missing in categorical variable. Not imputing as of now, can use hot deck or association rules if required
+59 missing values student_reached treated by mean replacement.  Ideally, given the right skewed distribution mean is not recommended, but the missing % is less than 0.001% of data. Remaining missing low frequency in categorical variable replaced by median. Not imputing as of now, can use hot deck or association rules if required
 
 ### Feature Adjustment to model
 - Creating binary 0,1 features from True/False
 - Normalising continuous variables
 - Dummy feature generation for model run
 
-
 ### Engeneering: Feature Generation & Deselection
 - Feature Generation I: using from prefix
     - Gender variable on teachers
     - Considered using selecting variables by qualifications: but techers with Dr's less than 1% of data
-
 - Feature Generation II: major cities
     - Considered high frequency cities
     - Quick google highest frequency ones for having high population
-
 - Feature Deselection: Excluding hierarchial variable -> Focus Area vs Subject (remove focus_area)
     - Checking if focus area and focus subject have 1-1 mapping
     - No they do not
     - Retain category with higher resolution
-
 - Hierarchial geographies: geographical identifiers (lat, long, state, county, city)
     - Multiple geographical indicators indicating same geography
     - Choosing geographical resolution
@@ -61,7 +56,6 @@ Following quick observation may be drawn for data on 124 thousand project propos
         - Corresponding number of cities (5955) by school district (5970)
         - But given difference in rel frequency using both
         - Keeping School district as it might be a better policy indicative
-
 
 ### Outliers 
 No strong pairwise correlation leading to a multinollinearity like situation.There might be correlation between total price and students reached, if outliers are removed, but considering the outliers value as part of sample for now. 
@@ -102,7 +96,6 @@ NOTE: *Treating outliers did not seem particularly useful for the data in questi
 - Checked performance of different models by checking AUC_ROC spread of model and precision  
 - Checked for degree of class imbalance and also that exists actoss across different temporal windows
 - Selected Precision therefore as the metric of evaluation
-
 
 
 ## Ancillary functions: In additon to modifying magicloop
