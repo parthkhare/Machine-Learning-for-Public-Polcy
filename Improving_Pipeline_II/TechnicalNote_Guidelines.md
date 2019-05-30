@@ -1,7 +1,7 @@
 # Assignment V: Improving Pipeline
 [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline/ML_ImprvPipe_HW3.ipynb)
 
-Not intended to be used by policy audience/client, the following documents summarises subjective calls taken on features, parameters, evaluation metrics and user-defined functions 
+## The following documents summarises subjective calls taken on features, parameters, evaluation metrics and user-defined functions. It features details not addressed in the writeup which is intended for policy audience and prospective clients.
 
 
 ## Data: First Impressions 
