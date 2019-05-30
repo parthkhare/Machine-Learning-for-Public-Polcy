@@ -27,7 +27,7 @@
 + see requirements.txt for a exhaustive list of modules used
 
 ### Notes: Improving on previous Improving Pipeline Assignment (HW3) 
-- Last pipeline submitted late due to a health emergency (hence unable to improve on subjective comments given on assignment hw3) 
+- Last pipeline (HW3) was submitted late due to a health emergency (hence unable to incorporate comments specific to my assignment) 
 - Implemented all the following changes discussed in extra class/notes:
 	+ Dynamic Train-Test split: via feature_eng (function)
 	+ 60 days buffer between train and testing periods: via observention window (parameter)
