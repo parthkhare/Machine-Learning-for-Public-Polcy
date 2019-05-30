@@ -9,14 +9,6 @@
 	- Addresses section for non-policy audience and self reference
 	- First hand impressions from data
 
-
-### Broad Assumptions/Model Limitations
-+ Used sample gid size: Increasing grid size might alter performances
-	- particularly since KNN took average of 18 hours even under optimal kdtree assumptions
-+ Excluded features with high categories: teacher, studentid, geography (/overlaps with school district)
-+ Inclusion of other attributes (e.g. demographic from census) might also affect/improve performance
-+ With the growth of the program and subsequently more training data one can expect a potential improvement in prediction
-
 ### Repository Structure
 - data: Donor's Choose data used for the model 
 - charts: from the model run
@@ -27,7 +19,6 @@
 	- note on precision and recall
 	- class guidelines on common mistakes
 
-
 ### Dependencies
 + Dataset: Modified version of Kaggle [Donor's Choose](https://www.kaggle.com/c/kdd-cup-2014-predicting-excitement-at-donors-choose/data)
 + Primary libaries: sklearn classifiers and metrics and, graphviz
@@ -35,7 +26,7 @@
 + Helper functions II: Helper functions on classification metrics, splitting temporal data, loop over classifier models, best model run
 + see requirements.txt for a exhaustive list of modules used
 
-### Notes: Improving Pipeline 
+### Notes: Improving on previous Improving Pipeline Assignment (HW3) 
 - Last pipeline submitted late due to a health emergency (hence unable improve subjective comments) 
 - Implemented all the following changes discussed in extra class:
 	+ Dynamic Train-Test split: via feature_eng (function)
