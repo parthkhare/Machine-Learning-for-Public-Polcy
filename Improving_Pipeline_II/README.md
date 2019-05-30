@@ -2,7 +2,7 @@
 [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/ML_ImprvPipeII_HW5.ipynb)
 
 ### Documents to read
-- Policy Audience [Writeup](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/Donor's Choose-Writeup.pdf) 
+- Policy Audience [Writeup](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/Donor's%20Choose-Writeup.pdf) 
 - [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/ML_ImprvPipeII_HW5.ipynb)
 - [Technical Note](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/TechnicalNote_Guidelines.md): guidelines and subjective judgements taken for the model
 	- Subjective calls on features (distrbutions), classifiers and metrics selection 
