@@ -461,6 +461,9 @@ def best_model(model_data, model_results, time_var, pred_var, tr_date, te_date, 
         best_train = tr_date
         best_test = te_date
 
+    # Parse Dates
+    
+
     # Derive train and test sets
     bx_train, by_train, bx_test, by_test = temporal_train_test_split(model_data, best_train[0], best_train[1],best_test[0], 
                                                                                 best_test[1], time_var, pred_var)

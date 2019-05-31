@@ -1,4 +1,4 @@
-# Assignment V: Improving Pipeline
+# Model Summary: Techinal Note and Guidelines
 [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline/ML_ImprvPipe_HW3.ipynb)
 
 ### The following documents summarises subjective calls taken on features, parameters, evaluation metrics and user-defined functions. It features details not addressed in the policy writeup.
