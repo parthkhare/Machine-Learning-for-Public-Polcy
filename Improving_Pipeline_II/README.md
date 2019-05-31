@@ -4,7 +4,7 @@
 ### Documents to read
 - [Writeup for Policy Audience](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/Donor's%20Choose-Writeup.pdf) 
 - [Jupyter Notebook](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/ML_ImprvPipeII_HW5.ipynb)
-- [Technical Note](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/TechnicalNote_Guidelines.md) for non policy audience. it features:
+- [Technical Note](https://github.com/parthkhare/Machine-Learning-for-Public-Polcy/blob/master/Improving_Pipeline_II/TechnicalNote_Guidelines.md) for non policy audience, addressing:
 	- Subjective calls on features (distrbutions), classifiers & metrics selection 
 	- Addresses section for non-policy audience and self reference
 	- First hand impressions from data
